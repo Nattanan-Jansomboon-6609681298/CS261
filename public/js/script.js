@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 function submitLogin() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -23,13 +25,15 @@ function call_REST_API_Hello() {
     const password = document.getElementById('password').value;
 
     const url = (
-        'http://localhost:8080/hello?' +
+        'http://localhost:8081/services/hello?' +
         new URLSearchParams({ myName: username, lastName: password}).toString()
       );
     
     fetch(url)
-    .then(data => {
-        document.getElementById('message').innerText = data.message;
+    .then(response => response.text())
+    .then(text => {
+        console.log("Text return from rest API: "+text);
+        document.getElementById('message').innerText = text;
     })
     .catch(error => console.error('Error:', error));
 }
