@@ -1,8 +1,9 @@
-const { response } = require("express");
+//const { response } = require("express");
 
 function submitLogin() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
 
     fetch('/api/auth', {
         method: 'POST',
