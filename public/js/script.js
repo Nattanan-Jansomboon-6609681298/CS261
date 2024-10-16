@@ -1,4 +1,4 @@
-//const { response } = require("express");
+
 
 function submitLogin() {
     const username = document.getElementById('username').value;
